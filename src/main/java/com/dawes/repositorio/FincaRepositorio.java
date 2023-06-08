@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.dawes.modelo.FincaVO;
 
 @Repository
-public interface FincaRepository extends JpaRepository<FincaVO, Integer> {
+public interface FincaRepositorio extends JpaRepository<FincaVO, Integer> {
 
 }
