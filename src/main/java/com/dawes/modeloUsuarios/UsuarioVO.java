@@ -5,22 +5,19 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//******************************
-//https://somospnt.com/blog/162-maneja-tus-usuarios-y-sus-roles-con-spring-security
-//*************************************************************
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -32,16 +29,12 @@ public class UsuarioVO implements UserDetails {
 	private int idusuario;
 	private String username;
 	private String password;
-	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
-	List<UsuarioRolVO> roles;
+	@Enumerated(EnumType.STRING)
+	    private RolVO rol;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> privilegios = new ArrayList<>();
-		for (UsuarioRolVO r : roles) {
-			privilegios.add(new SimpleGrantedAuthority(r.getRol().getNombre()));
-		}
-
 		return privilegios;
 	}
 
@@ -68,5 +61,31 @@ public class UsuarioVO implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public RolVO getRol() {
+		return rol;
+	}
+
+	public void setRol(RolVO rol) {
+		this.rol = rol;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
 
 }
