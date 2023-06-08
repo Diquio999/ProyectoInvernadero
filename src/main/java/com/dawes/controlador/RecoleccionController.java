@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dawes.modelo.FincaVO;
 import com.dawes.modelo.RecoleccionVO;
-import com.dawes.servicio.ServicioFinca;
-import com.dawes.servicio.ServicioRecoleccion;
-import com.dawes.servicio.ServicioVariedad;
+import com.dawes.servicioImpl.ServicioFincaImpl;
+import com.dawes.servicioImpl.ServicioRecoleccionImpl;
+import com.dawes.servicioImpl.ServicioVariedadImpl;
 
 
 @Controller
 @RequestMapping("/recoleccion")
 public class RecoleccionController {
 	@Autowired
-	ServicioRecoleccion sr;
+	ServicioRecoleccionImpl sr;
 	@Autowired
-	ServicioFinca sf;
+	ServicioFincaImpl sf;
 	@Autowired
-	ServicioVariedad sv;
+	ServicioVariedadImpl sv;
 	
 	@RequestMapping("/mostrar")
 	public String mostrar(Model modelo) {
