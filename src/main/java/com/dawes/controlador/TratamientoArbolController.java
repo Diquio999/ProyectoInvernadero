@@ -8,26 +8,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.dawes.modelo.TratamientoArbolVO;
-import com.dawes.servicio.ServicioArbol;
-import com.dawes.servicio.ServicioFinca;
-import com.dawes.servicio.ServicioTratamiento;
-import com.dawes.servicio.ServicioTratamientoArbol;
-import com.dawes.servicio.ServicioVariedad;
+import com.dawes.servicioImpl.ServicioArbolImpl;
+import com.dawes.servicioImpl.ServicioFincaImpl;
+import com.dawes.servicioImpl.ServicioTratamientoImpl;
+import com.dawes.servicioImpl.ServicioTratamientoArbolImpl;
+import com.dawes.servicioImpl.ServicioVariedadImpl;
 
 @Controller
 @RequestMapping("/tratamientosarbol")
 public class TratamientoArbolController {
 
 	@Autowired
-	ServicioArbol sa;
+	ServicioArbolImpl sa;
 	@Autowired
-	ServicioFinca sf;
+	ServicioFincaImpl sf;
 	@Autowired
-	ServicioVariedad sv;
+	ServicioVariedadImpl sv;
 	@Autowired
-	ServicioTratamiento st;
+	ServicioTratamientoImpl st;
 	@Autowired
-	ServicioTratamientoArbol sta;
+	ServicioTratamientoArbolImpl sta;
 	
 	
 	@RequestMapping("/mostrar")
