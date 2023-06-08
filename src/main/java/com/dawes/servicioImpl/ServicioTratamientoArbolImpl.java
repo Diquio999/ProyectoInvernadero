@@ -19,7 +19,7 @@ public class ServicioTratamientoArbolImpl{
 		return repo.save(tratamientoarbol);
 
 	}
-	public TratamientoArbolVO findById(Long id) {
+	public TratamientoArbolVO findById(Integer id) {
 		Optional<TratamientoArbolVO> tratamientoarbol = repo.findById(id);
 		if (tratamientoarbol.isPresent()) {
 			return tratamientoarbol.get();
