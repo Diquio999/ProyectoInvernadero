@@ -41,7 +41,7 @@ public class ServicioArbolImpl {
 	
 
 	public void deleteById(Integer id) {
-		ar.deleteById(id);
+		repo.deleteById(id);
 	}
 
 }
