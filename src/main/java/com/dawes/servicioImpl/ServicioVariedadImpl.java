@@ -1,16 +1,16 @@
 package com.dawes.servicioImpl;
 
 import java.util.Optional;
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 import com.dawes.modelo.VariedadVO;
 import com.dawes.repositorio.VariedadRepositorio;
-import com.dawes.servicio.ServicioVariedad;
 
 @Service
+@Transactional
 public class ServicioVariedadImpl implements ServicioVariedad{
 	@Autowired
 	private VariedadRepositorio repo;
