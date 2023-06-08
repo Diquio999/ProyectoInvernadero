@@ -42,7 +42,7 @@ public class ServicioTratamientoImpl{
 
 	
 	public void deleteById(Integer id) {
-		tr.deleteById(id);
+		repo.deleteById(id);
 		
 	}
 
