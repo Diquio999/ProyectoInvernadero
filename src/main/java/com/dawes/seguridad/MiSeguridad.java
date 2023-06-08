@@ -18,7 +18,7 @@ import com.dawes.servicioImpl.ServicioUsuarioImpl;
 public class MiSeguridad {
 	
 	@Autowired
-	ServicioUsuarioImpl su;
+	ServicioUsuarioImpl sus;
 	
 	@Bean
 	public BCryptPasswordEncoder encripta() {
@@ -34,7 +34,7 @@ public class MiSeguridad {
 		//programamaos la autenticacion
 		http
 		.getSharedObject(AuthenticationManagerBuilder.class)
-		.userDetailsService(su)
+		.userDetailsService(sus)
 		.passwordEncoder(encripta());
 		
 		//autorizamos acceso a los recursos de user
