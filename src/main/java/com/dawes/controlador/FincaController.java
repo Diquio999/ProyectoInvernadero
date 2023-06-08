@@ -77,7 +77,7 @@ public class FincaController {
 					{ -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1 } };
 		Optional<FincaVO> finca= sf.findById(id);
 		List<ArbolVO> arboles = (List<ArbolVO>) sa.findAll();
-		if(!finca.isEmpty()) {
+		if(false) {
 			String nombreFinca = finca.get().getNombre(); 
 		for (ArbolVO arbolVO : arboles) {
 			if (arbolVO.getFinca().getIdfinca() == id)
