@@ -13,71 +13,31 @@ import com.dawes.servicio.ServicioVariedad;
 @Service
 public class ServicioVariedadImpl implements ServicioVariedad{
 	@Autowired
-	private VariedadRepositorio vr;
+	private VariedadRepositorio repo;
 	
-	@Override
-	public <S extends VariedadVO> S save(S entity) {
-		return vr.save(entity);
-	}
+	public VariedadVO save(VariedadVO variedad) {
+		return repo.save(variedad);
 
-	@Override
-	public <S extends VariedadVO> Iterable<S> saveAll(Iterable<S> entities) {
-		return vr.saveAll(entities);
 	}
-
-	@Override
-	public Optional<VariedadVO> findById(Integer id) {
-		return vr.findById(id);
+	public VariedadVO findById(Long id) {
+		Optional<VariedadVO> variedad = repo.findById(id);
+		if (variedad.isPresent()) {
+			return variedad.get();
+		}
+		return null;
 	}
-
-	@Override
-	public boolean existsById(Integer id) {
-		return vr.existsById(id);
+	
+		public List<VariedadVO> findAll() {
+		List<VariedadVO> variedades = repo.findAll();
+		return variedades;
 	}
+	
 
-	@Override
-	public Iterable<VariedadVO> findAll() {
-		return vr.findAll();
-	}
-
-	@Override
-	public Iterable<VariedadVO> findAllById(Iterable<Integer> ids) {
-		return vr.findAllById(ids);
-	}
-
-	@Override
-	public long count() {
-		return vr.count();
-	}
-
-	@Override
+	
 	public void deleteById(Integer id) {
 		vr.deleteById(id);
 		
 	}
 
-	@Override
-	public void delete(VariedadVO entity) {
-		vr.delete(entity);
-		
-	}
-
-	@Override
-	public void deleteAllById(Iterable<? extends Integer> ids) {
-		vr.deleteAllById(ids);
-		
-	}
-
-	@Override
-	public void deleteAll(Iterable<? extends VariedadVO> entities) {
-		vr.deleteAll(entities);
-		
-	}
-
-	@Override
-	public void deleteAll() {
-		vr.deleteAll();
-		
-	}
 
 }
