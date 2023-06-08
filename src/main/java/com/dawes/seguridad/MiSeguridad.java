@@ -20,62 +20,28 @@ public class MiSeguridad {
 	@Autowired
 	ServicioUsuarioImpl su;
 	
-	@Bean
-	public BCryptPasswordEncoder encripta() {
-		return new BCryptPasswordEncoder();
+
+	public String encriptator(String password) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		return encoder.encode(password);
+	}
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication().withUser("admin").password("{noop}admin").roles("ADMIN");
 	}
 	
-	public String encripta(String password) {
-		return new BCryptPasswordEncoder().encode(password);
-	}
-	
 	@Bean
-	public SecurityFilterChain filtrocompleto(HttpSecurity http) throws Exception{
-		//programamaos la autenticacion
-		http
-		.getSharedObject(AuthenticationManagerBuilder.class)
-		.userDetailsService(su)
-		.passwordEncoder(encripta());
-		
-		//autorizamos acceso a los recursos de user
-		http
-		.authorizeHttpRequests()
-		.requestMatchers(new AntPathRequestMatcher("/user/**"))
-		.hasAnyRole("ADMIN", "USER")
-		.and()
-		.exceptionHandling()
-		.accessDeniedPage("/403");
-		
-		//autorizamos acceso a los recursos de admin
-		http
-		.authorizeHttpRequests()
-		.requestMatchers(new AntPathRequestMatcher("/admin/**"))
-		.hasRole("ADMIN")
-		.and()
-		.exceptionHandling()
-		.accessDeniedPage("/403");
-		
-		//acceso publico a los recursos en el raiz en el pincipal, login
-		http
-		.authorizeHttpRequests()
-		.requestMatchers(new AntPathRequestMatcher("/"), new AntPathRequestMatcher("/login"), new AntPathRequestMatcher("/index"))
-		.permitAll()
-		.anyRequest()
-		.authenticated();
-		
-		//personalizar login
-		http
-		.formLogin()
-		.loginPage("/login")
-		.permitAll();
-		
-		// programamos el logout
-		http
-		.logout()
-		.logoutUrl("/logout")
-		.permitAll();
-		
+	public SecurityFilterChain filtrocompleto(HttpSecurity http) throws Exception {
+
+		http.authorizeHttpRequests().requestMatchers("/admin/**").hasRole("ADMIN").and().exceptionHandling()
+				.accessDeniedPage("/403");
+
+		http.authorizeHttpRequests().requestMatchers("/","/finca/homefincas","/variedad/homevariedades", "/tratamiento/hometratamientos", "/recoleccion/homerecolecciones", "/arbol/homearboles", "/finca/mapafinca/**", "/css/**").permitAll().anyRequest().authenticated();
+
+		http.formLogin().loginPage("/login").permitAll();
+
+		http.logout().logoutUrl("/logout").permitAll();
+
 		return http.build();
 	}
 }
-
