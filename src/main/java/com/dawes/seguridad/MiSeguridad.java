@@ -1,4 +1,4 @@
-package com.dawes.seguridad;
+/*package com.dawes.seguridad;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -78,3 +78,4 @@ public class MiSeguridad {
 		return http.build();
 	}
 }
+*/
