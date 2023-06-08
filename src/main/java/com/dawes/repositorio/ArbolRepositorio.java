@@ -3,13 +3,13 @@ package com.dawes.repositorio;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.dawes.modelo.ArbolVO;
 import com.dawes.modelo.FincaVO;
-
 @Repository
-public interface ArbolRepositorio extends CrudRepository<ArbolVO, Integer>{
-	Optional<ArbolVO> findByColumnaAndFilaAndFinca(int fila, int columna, FincaVO finca);
+public interface ArbolRepository extends JpaRepository<ArbolVO, Long> {
+
 }
+
