@@ -10,7 +10,7 @@ import com.dawes.repositorio.TratamientoRepositorio;
 
 @Service
 @Transactional
-public class ServicioTratamientoImpl implements ServicioTratamiento{
+public class ServicioTratamientoImpl{
 
 	@Autowired
 	private TratamientoRepositorio repo;
