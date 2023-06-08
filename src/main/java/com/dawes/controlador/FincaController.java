@@ -75,7 +75,7 @@ public class FincaController {
 	public String Mapa(Model model, @PathVariable(name = "id") int id) {
 		int[][] matriz = { { -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1 },
 					{ -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1 } };
-		FincaVO finca= fincaservice.findFinca(id);
+		FincaVO finca= sf.findFinca(id);
 		List<ArbolVO> arboles = (List<ArbolVO>) sa.findAll();
 		String nombreFinca = finca.getNombre(); 
 		for (ArbolVO arbolVO : arboles) {
