@@ -11,7 +11,7 @@ import com.dawes.repositorio.VariedadRepositorio;
 
 @Service
 @Transactional
-public class ServicioVariedadImpl implements ServicioVariedad{
+public class ServicioVariedadImpl{
 	@Autowired
 	private VariedadRepositorio repo;
 	
