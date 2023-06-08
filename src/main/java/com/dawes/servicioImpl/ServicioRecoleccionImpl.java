@@ -5,13 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.dawes.modelo.FincaVO;
 import com.dawes.modelo.RecoleccionVO;
 import com.dawes.repositorio.RecoleccionRepositorio;
-import com.dawes.servicio.ServicioRecoleccion;
 
 @Service
+@Transactional
 public class ServicioRecoleccionImpl implements ServicioRecoleccion{
 
 	@Autowired
