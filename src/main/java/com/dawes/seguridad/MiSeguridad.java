@@ -11,14 +11,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.dawes.servicioImpl.ServicioUsuarioImpl;
 
 @Configuration
 @EnableWebSecurity
 public class MiSeguridad {
 	
-	@Autowired
-	ServicioUsuarioImpl su;
 	
 
 	public String encriptator(String password) {
