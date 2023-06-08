@@ -24,7 +24,7 @@ public class ServicioArbolImpl {
 	}
 
 	//ARBOL POR REFERENCIA
-	public ArbolVO findById(Long id) {
+	public ArbolVO findById(Integer id) {
 		Optional<ArbolVO> arbol = repo.findById(id);
 		if (arbol.isPresent()) {
 			return arbol.get();
