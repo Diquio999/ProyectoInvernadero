@@ -23,7 +23,7 @@ public class ServicioTratamientoImpl{
 	
 
 
-	public TratamientoVO findById(Long id) {
+	public TratamientoVO findById(Integer id) {
 		Optional<TratamientoVO> tratamiento = repo.findById(id);
 		if (tratamiento.isPresent()) {
 			return tratamiento.get();
