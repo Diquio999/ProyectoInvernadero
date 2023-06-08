@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.dawes.modelo.ArbolVO;
 import com.dawes.modelo.FincaVO;
 @Repository
-public interface ArbolRepository extends JpaRepository<ArbolVO, Integer> {
+public interface ArbolRepositorio extends JpaRepository<ArbolVO, Integer> {
 
 }
 
