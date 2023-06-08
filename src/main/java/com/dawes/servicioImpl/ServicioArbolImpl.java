@@ -16,25 +16,31 @@ import com.dawes.servicio.ServicioArbol;
 public class ServicioArbolImpl implements ServicioArbol {
 
 	@Autowired
-	private ArbolRepositorio ar;
+	private ArbolRepositorio repo;
 	
 
-	public <S extends ArbolVO> S save(S entity) {
-		return ar.save(entity);
+		//GUARDAR ARBOL
+	public ArbolVO save(ArbolVO arbol) {
+		return repo.save(arbol);
+
 	}
 
-
-	public Optional<ArbolVO> findById(Integer id) {
-		return ar.findById(id);
+	//ARBOL POR REFERENCIA
+	public ArbolVO findById(Long id) {
+		Optional<ArbolVO> arbol = repo.findById(id);
+		if (arbol.isPresent()) {
+			return arbol.get();
+		}
+		return null;
 	}
-
+	
+	
+	public List<ArbolVO> findAll() {
+		List<ArbolVO> arboles = repo.findAll();
+		return arboles;
+	}
 
 	
-	public Iterable<ArbolVO> findAll() {
-		return ar.findAll();
-	}
-
-
 
 	public void deleteById(Integer id) {
 		ar.deleteById(id);
