@@ -35,7 +35,7 @@ public class ServicioVariedadImpl{
 
 	
 	public void deleteById(Integer id) {
-		vr.deleteById(id);
+		repo.deleteById(id);
 		
 	}
 
