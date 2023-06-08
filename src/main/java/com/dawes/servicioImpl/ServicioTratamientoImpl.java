@@ -13,68 +13,37 @@ import com.dawes.servicio.ServicioTratamiento;
 public class ServicioTratamientoImpl implements ServicioTratamiento{
 
 	@Autowired
-	private TratamientoRepositorio tr;
+	private TratamientoRepositorio repo;
 	
-	@Override
-	public <S extends TratamientoVO> S save(S entity) {
-		return tr.save(entity);
+	public TratamientoVO save(TratamientoVO tratamiento) {
+		return repo.save(tratamiento);
+
 	}
 
-	@Override
-	public <S extends TratamientoVO> Iterable<S> saveAll(Iterable<S> entities) {
-		return tr.saveAll(entities);
+	
+
+
+	public TratamientoVO findById(Long id) {
+		Optional<TratamientoVO> tratamiento = repo.findById(id);
+		if (tratamiento.isPresent()) {
+			return tratamiento.get();
+		}
+		return null;
+	}
+	
+	
+
+
+	
+	public List<TratamientoVO> findAll() {
+		List<TratamientoVO> tratamientos = repo.findAll();
+		return tratamientos;
 	}
 
-	@Override
-	public Optional<TratamientoVO> findById(Integer id) {
-		return tr.findById(id);
-	}
-
-	@Override
-	public boolean existsById(Integer id) {
-		return tr.existsById(id);
-	}
-
-	@Override
-	public Iterable<TratamientoVO> findAll() {
-		return tr.findAll();
-	}
-
-	@Override
-	public Iterable<TratamientoVO> findAllById(Iterable<Integer> ids) {
-		return tr.findAllById(ids);
-	}
-
-	@Override
-	public long count() {
-		return tr.count();
-	}
-
-	@Override
+	
 	public void deleteById(Integer id) {
 		tr.deleteById(id);
 		
-	}
-
-	@Override
-	public void delete(TratamientoVO entity) {
-		tr.delete(entity);
-		
-	}
-
-	@Override
-	public void deleteAllById(Iterable<? extends Integer> ids) {
-		tr.deleteAllById(ids);
-	}
-
-	@Override
-	public void deleteAll(Iterable<? extends TratamientoVO> entities) {
-		tr.deleteAll(entities);
-	}
-
-	@Override
-	public void deleteAll() {
-		tr.deleteAll();
 	}
 
 }
