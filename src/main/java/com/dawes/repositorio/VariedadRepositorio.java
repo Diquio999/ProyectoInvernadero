@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.dawes.modelo.VariedadVO;
 
 @Repository
-public interface VariedadRepositorio extends JpaRepository<VariedadVO, Long>{
+public interface VariedadRepositorio extends JpaRepository<VariedadVO, Integer>{
 
 }
