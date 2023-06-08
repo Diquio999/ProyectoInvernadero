@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.dawes.modelo.VariedadVO;
-import com.dawes.servicio.ServicioVariedad;
+import com.dawes.servicioImpl.ServicioVariedadImpl;
 
 @Controller
 @RequestMapping("/variedad")
 public class VariedadController {
 	
 	@Autowired
-	ServicioVariedad sa;
+	ServicioVariedadImpl sa;
 	
 	@RequestMapping("/mostrar")
 	public String mostrar(Model modelo) {
