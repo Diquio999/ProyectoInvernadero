@@ -19,7 +19,7 @@ public class ServicioVariedadImpl{
 		return repo.save(variedad);
 
 	}
-	public VariedadVO findById(Long id) {
+	public VariedadVO findById(Integer id) {
 		Optional<VariedadVO> variedad = repo.findById(id);
 		if (variedad.isPresent()) {
 			return variedad.get();
