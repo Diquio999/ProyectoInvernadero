@@ -24,7 +24,7 @@ public class ServicioRecoleccionImpl{
 
 	
 
-		public RecoleccionVO findById(Long id) {
+		public RecoleccionVO findById(Integer id) {
 		Optional<RecoleccionVO> recoleccion = repo.findById(id);
 		if (recoleccion.isPresent()) {
 			return recoleccion.get();
