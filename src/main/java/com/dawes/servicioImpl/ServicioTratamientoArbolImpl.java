@@ -11,7 +11,7 @@ import com.dawes.modelo.ArbolVO;
 
 @Service
 @Transactional
-public class ServicioTratamientoArbolImpl implements ServicioTratamientoArbol{
+public class ServicioTratamientoArbolImpl{
 	@Autowired
 	private TratamientoArbolRepositorio repo;
 
