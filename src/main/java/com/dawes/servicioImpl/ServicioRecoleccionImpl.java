@@ -12,7 +12,7 @@ import com.dawes.repositorio.RecoleccionRepositorio;
 
 @Service
 @Transactional
-public class ServicioRecoleccionImpl implements ServicioRecoleccion{
+public class ServicioRecoleccionImpl{
 
 	@Autowired
 	private RecoleccionRepositorio repo;
