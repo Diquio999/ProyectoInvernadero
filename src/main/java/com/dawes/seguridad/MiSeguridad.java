@@ -1,7 +1,6 @@
 package com.dawes.seguridad;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -9,72 +8,38 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.dawes.servicioImpl.ServicioUsuarioImpl;
+import com.dawes.services.UsuarioService;
 
 @Configuration
 @EnableWebSecurity
-public class MiSeguridad {
-	
+public class SecurityConfig {
+
 	@Autowired
-	ServicioUsuarioImpl sus;
-	
-	@Bean
-	public BCryptPasswordEncoder encripta() {
-		return new BCryptPasswordEncoder();
+	UsuarioService su;
+
+	public String encriptator(String password) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		return encoder.encode(password);
 	}
-	
-	public String encripta(String password) {
-		return new BCryptPasswordEncoder().encode(password);
+
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication().withUser("admin").password("{noop}admin").roles("ADMIN");
 	}
-	
+
 	@Bean
-	public SecurityFilterChain filtrocompleto(HttpSecurity http) throws Exception{
-		//programamaos la autenticacion
-		http
-		.getSharedObject(AuthenticationManagerBuilder.class)
-		.userDetailsService(sus)
-		.passwordEncoder(encripta());
-		
-		//autorizamos acceso a los recursos de user
-		http
-		.authorizeHttpRequests()
-		.requestMatchers(new AntPathRequestMatcher("/user/**"))
-		.hasAnyRole("ADMIN", "USER")
-		.and()
-		.exceptionHandling()
-		.accessDeniedPage("/403");
-		
-		//autorizamos acceso a los recursos de admin
-		http
-		.authorizeHttpRequests()
-		.requestMatchers(new AntPathRequestMatcher("/admin/**"))
-		.hasRole("ADMIN")
-		.and()
-		.exceptionHandling()
-		.accessDeniedPage("/403");
-		
-		//acceso publico a los recursos en el raiz en el pincipal, login
-		http
-		.authorizeHttpRequests()
-		.requestMatchers(new AntPathRequestMatcher("/"), new AntPathRequestMatcher("/login"), new AntPathRequestMatcher("/index"))
-		.permitAll()
-		.anyRequest()
-		.authenticated();
-		
-		//personalizar login
-		http
-		.formLogin()
-		.loginPage("/login")
-		.permitAll();
-		
-		// programamos el logout
-		http
-		.logout()
-		.logoutUrl("/logout")
-		.permitAll();
-		
+	public SecurityFilterChain filtrocompleto(HttpSecurity http) throws Exception {
+
+		http.authorizeHttpRequests().requestMatchers("/admin/**").hasRole("ADMIN").and().exceptionHandling()
+				.accessDeniedPage("/403");
+
+		http.authorizeHttpRequests().requestMatchers("/","/finca/homefincas","/variedad/homevariedades", "/tratamiento/hometratamientos", "/recoleccion/homerecolecciones", "/arbol/homearboles", "/finca/mapafinca/**", "/css/**").permitAll().anyRequest().authenticated();
+
+		http.formLogin().loginPage("/login").permitAll();
+
+		http.logout().logoutUrl("/logout").permitAll();
+
 		return http.build();
 	}
 }
