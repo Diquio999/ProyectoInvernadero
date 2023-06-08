@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.dawes.modelo.ArbolVO;
 import com.dawes.modelo.TratamientoArbolVO;
 @Repository
-public interface TratamientoArbolRepository extends JpaRepository<TratamientoArbolVO, Integer>{
+public interface TratamientoArbolRepositorio extends JpaRepository<TratamientoArbolVO, Integer>{
 
 	@Query("select c from TratamientoArbolVO c where arbol=:arbol")
 	Optional<List<TratamientoArbolVO>> findAllByArbol(ArbolVO arbol);
