@@ -14,27 +14,30 @@ public class ServicioTratamientoArbolImpl implements ServicioTratamientoArbol{
 	@Autowired
 	private TratamientoArbolRepositorio repo;
 
-		public RecoleccionVO save(RecoleccionVO finca) {
-		return repo.save(finca);
+	public TratamientoArbolVO save(TratamientoArbolVO tratamientoarbol) {
+		return repo.save(tratamientoarbol);
 
 	}
-
-
-	public RecoleccionVO findById(Long id) {
-		Optional<RecoleccionVO> recoleccion = repo.findById(id);
-		if (recoleccion.isPresent()) {
-			return recoleccion.get();
+	public TratamientoArbolVO findById(Long id) {
+		Optional<TratamientoArbolVO> tratamientoarbol = repo.findById(id);
+		if (tratamientoarbol.isPresent()) {
+			return tratamientoarbol.get();
 		}
 		return null;
 	}
 
 
-	
-		public List<RecoleccionVO> findAll() {
-		List<RecoleccionVO> recolecciones = repo.findAll();
-		return recolecciones;
+
+public List<TratamientoArbolVO> findAll() {
+		List<TratamientoArbolVO> tratamientoarboles = repo.findAll();
+		return tratamientoarboles;
 	}
 
+	
+	//TRATAMIENTOS POR ARBOL
+	public Optional<List<TratamientoArbolVO>> findAllByArbol(ArbolVO arbol) {
+		return repo.findAllByArbol(arbol);
+	}
 	
 
 	
