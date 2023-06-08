@@ -22,7 +22,7 @@ public class ServicioFincaImpl{
 
 	}
 
-		public FincaVO findById(Long id) {
+		public FincaVO findById(Integer id) {
 		Optional<FincaVO> finca = repo.findById(id);
 		if (finca.isPresent()) {
 			return finca.get();
