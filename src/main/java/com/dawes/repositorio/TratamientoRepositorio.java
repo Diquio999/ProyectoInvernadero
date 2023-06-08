@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.dawes.modelo.TratamientoVO;
 
 @Repository
-public interface TratamientoRepositorio extends JpaRepository<TratamientoVO, Interger>{
+public interface TratamientoRepositorio extends JpaRepository<TratamientoVO, Integer>{
 
 }
