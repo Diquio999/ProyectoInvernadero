@@ -12,7 +12,7 @@ import com.dawes.repositorio.FincaRepositorio;
 
 @Service
 @Transactional
-public class ServicioFincaImpl implements ServicioFinca{
+public class ServicioFincaImpl{
 
 	@Autowired
 	private FincaRepositorio repo;
