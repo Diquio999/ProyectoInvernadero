@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.dawes.modelo.ArbolVO;
 import com.dawes.modelo.FincaVO;
 import com.dawes.modelo.TratamientoArbolVO;
-import com.dawes.servicio.ServicioArbol;
-import com.dawes.servicio.ServicioFinca;
+import com.dawes.servicioImpl.ServicioArbolImpl;
+import com.dawes.servicioImpl.ServicioFincaImpl;
 
 @Controller
 @RequestMapping("/finca")
 public class FincaController {
 	@Autowired
-	ServicioFinca sf;
+	ServicioFincaImpl sf;
 	@Autowired
-	ServicioArbol sa;
+	ServicioArbolImpl sa;
 	
 	@RequestMapping("/mostrar")
 	public String mostrar(Model modelo) {
