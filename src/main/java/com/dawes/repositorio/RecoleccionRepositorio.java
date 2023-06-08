@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.dawes.modelo.RecoleccionVO;
 @Repository
-public interface RecoleccionRepository extends JpaRepository<RecoleccionVO, Integer>{
+public interface RecoleccionRepositorio extends JpaRepository<RecoleccionVO, Integer>{
 
 }
