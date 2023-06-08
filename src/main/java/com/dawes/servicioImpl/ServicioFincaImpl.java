@@ -5,12 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dawes.modelo.FincaVO;
 import com.dawes.repositorio.FincaRepositorio;
-import com.dawes.servicio.ServicioFinca;
 
 @Service
+@Transactional
 public class ServicioFincaImpl implements ServicioFinca{
 
 	@Autowired
