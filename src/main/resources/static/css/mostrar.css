@@ -1,0 +1,57 @@
+body{
+    background-color: #a4faa6;
+}
+
+nav{
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    margin: -25px;
+    margin-top: 8px;
+}
+nav li{
+    width: 1%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.3em;
+    border:1px solid #000;
+    background-color: rgb(12, 182, 0);
+    transition: background-color 8. ease;
+}
+
+nav li:hover{
+    background-color: rgb(107, 251, 67);
+}
+
+nav li a{
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 1em 0 1em 0;
+}
+
+.tabla{
+    width: 90%;
+    border: solid 2px;
+    padding-bottom: 30px;
+}
+
+.tabla th{
+    border: solid 1px;
+    text-align: center;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.insertar{
+    margin-top: 20px;
+    width: 200px;
+    padding: 10px;
+    background: rgb(12, 182, 0);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}

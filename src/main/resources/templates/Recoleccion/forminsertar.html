@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/estilosForm.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+	<form method="post" th:action="@{/recoleccion/insertar}" th:object="${recoleccion}">
+		<p>
+			Fecha de Recogida: <input type="date" th:field="*{fechaRecogida}"/>
+		</p>
+		<p>
+			Recolecta: <input type="text" th:field="*{recolecta}"/>
+		</p>
+		<p>
+			Finca: <select th:field="*{finca}">
+				<option th:each="finca: ${finca}" th:value="${finca.idfinca}" th:text="${finca.nombre}"></option>
+			</select>
+		</p>
+		<p>
+			Variedad: <select th:field="*{variedad}">
+				<option th:each="variedad: ${variedad}" th:value="${variedad.idvariedad}" th:text="${variedad.nombre}"></option>
+			</select>
+		</p>
+		<p>
+			<input type="submit" value="insertar"/>
+		</p>
+	</form>
+</body>
+</html>

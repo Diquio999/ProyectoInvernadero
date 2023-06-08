@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mapa</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/mapa.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header th:replace="~{layaout/fragments :: header}"></header>
+<h1>MAPA DE ARBOLES</h1>
+<h1 th:text="${nombreFinca}"></h1>
+ <table border = 1>
+ <tr th:each="row : ${matriz}">
+    <td th:each="element : ${row}">
+      <span th:if="${element != -1}" th:text="${element}"></span>
+      <span th:if="${element == -1}">vacio</span>
+    </td>
+  </tr>
+</table>
+<a th:href="@{/finca/mostrar}">Volver fincas</a>
+</body>
+</html>

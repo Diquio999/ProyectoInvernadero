@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+	<h1>CRUD Recoleccion</h1>
+	<table>
+		<tr>
+			<th>Fecha</th>
+			<th>Recolecta</th>
+			<th>Finca</th>
+			<th>Variedad</th>
+			<th>Accion</th>
+		</tr>
+		<tr th:each="recoleccion: ${recoleccion}">
+			<td th:text="${recoleccion.fechaRecogida}" />
+			<td th:text="${recoleccion.recolecta}" />
+			<td th:text="${recoleccion.finca.nombre}" />
+			<td th:text="${recoleccion.variedad.nombre}" />
+			
+			<td><a th:href="@{/recoleccion/editar(idrecoleccion=${recoleccion.idrecoleccion})}" class="editar">Editar</a>
+			<a th:href="@{/recoleccion/eliminar(idrecoleccion=${recoleccion.idrecoleccion})}" class="eliminar">Eliminar</a></td>
+	</table>
+	<a th:href="@{/recoleccion/forminsertar}" class="insertar">Insertar nuevo tipo de recoleccion</a>
+</body>
+</html>

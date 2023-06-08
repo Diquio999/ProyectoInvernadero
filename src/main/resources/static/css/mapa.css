@@ -1,0 +1,44 @@
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    
+    table {
+        margin: 20px auto;
+        border-collapse: collapse;
+    }
+    
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+    
+    td span {
+        display: block;
+        padding: 5px;
+        background-color: #fff;
+        color: #333;
+    }
+    
+    td span.vacio {
+        background-color: #ccc;
+    }
+    
+    a {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #333;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #666;
+    }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+	<h1>CRUD Finca</h1>
+	<table>
+		<tr>
+			<th>Nombre</th>
+			<th>Direccion</th>
+			<th>Superficie (m2)</th>
+			<th>Fecha de Creacion</th>
+			<th>Accion</th>
+		</tr>
+		<tr th:each="finca: ${finca}">
+			<td th:text="${finca.nombre}" />
+			<td th:text="${finca.direccion}" />
+			<td th:text="${finca.superficie}" />
+			<td th:text="${finca.fecha}" />
+			
+			<td><a th:href="@{/finca/editar(idfinca=${finca.idfinca})}" class="editar">Editar</a>
+			<a th:href="@{/finca/eliminar(idfinca=${finca.idfinca})}" class="eliminar">Eliminar</a>
+			<a th:href="'/finca/mapafinca/' + ${finca.idfinca}" class="mapa">Mapa</a>
+			</td>
+			
+	</table>
+	<a th:href="@{/finca/forminsertar}" class="insertar">Insertar nueva Finca</a>
+</body>
+</html>

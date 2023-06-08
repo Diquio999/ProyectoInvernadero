@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>nuevarbol</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/estilosForm.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header th:replace="~{layaout/fragments :: header}"></header>
+            <form th:action="@{/arbol/insertar}" method="post" th:object="${arbol}">
+
+        <p>
+            Variedad: <select th:field="*{variedad}">
+				<option th:each="variedad: ${variedad}" th:value="${variedad.idvariedad}" th:text="${variedad.nombre}"></option>
+			</select>
+        </p>
+        <p>Estado: <select name="estado">
+                    <option th:each="estado : ${T(com.dawes.enums.EstadoArbol).values()}"
+                    th:value="${estado}" th:text="${estado}"></option>
+                    </select></p>
+         <p>
+            Finca: <select th:field="*{finca}">
+				<option th:each="finca: ${finca}" th:value="${finca.idfinca}" th:text="${finca.nombre}"></option>
+			</select>
+        </p>
+        
+        <p>Fila: <input type="text" th:field="*{fila}"/>
+        
+        <p>Columna: <input type="text" th:field="*{columna}"/>
+        
+        <p>Fecha Plantacion: <input type="date" th:field="*{fechaplantacion}"/>
+
+        <p>
+			<input type="submit" value="insertar"/>
+        </form>
+</body>
+</html>

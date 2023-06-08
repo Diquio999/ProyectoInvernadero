@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css" >
+</head>
+<body>
+<header th:fragment ="header" >
+<nav>
+  
+  <div >
+    <ul >
+    <li >
+        <a class="nav-list" href="/index">Inicio</a>
+      </li>
+    <li >
+        <a class="nav-list" href="/variedad/mostrar">CRUD Variedad</a>
+      </li>
+   	<li>
+        <a class="nav-list" href="/finca/mostrar"> CRUD Finca</a>
+      </li>
+      <li >
+        <a class="nav-list" href="/tratamiento/mostrar">CRUD Tratamiento</a>
+      </li>
+      <li >
+        <a class="nav-list" href="/recoleccion/mostrar">CRUD Recoleccion</a>
+      </li>
+      <li >
+        <a class="nav-list" href="/arbol/mostrar">CRUD Arbol</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</header>
+</body>
+</html>

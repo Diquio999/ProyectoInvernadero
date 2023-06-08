@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Tratamientos aplicados</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+	<h1>Tratamientos aplicados</h1>
+	<table border="1" cellpadding="10">
+			<tr>
+				<th>Variedad</th>
+				<th>Estado</th>
+				<th>Tratamiento Aplicado</th>
+				<th>Tipo de tratamiento</th>
+				<th>Fecha de aplicacion</th>
+				
+					
+			</tr>
+			<tr th:each="tratamientosarbol : ${tratamientosarbol}">
+				<td th:text="${tratamientosarbol.arbol.variedad.nombre}"></td>
+				<td th:text="${tratamientosarbol.arbol.estado}"></td>
+				<td th:text="${tratamientosarbol.tratamiento.nombre}"></td>
+				<td th:text="${tratamientosarbol.tratamiento.tipo}"></td>
+				<td th:text="${tratamientosarbol.fechatratamiento}"></td>
+			</tr>
+			
+		</table>
+		<a th:href="@{/tratamientosarbol/forminsertar}" class="insertar">Aplicar Tratamiento</a>
+</body>
+</html>

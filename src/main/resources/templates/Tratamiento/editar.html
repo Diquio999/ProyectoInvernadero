@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/estilosForm.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+	<form method="post" th:action="@{/tratamiento/save}" th:object="${tratamiento}">
+		<p>
+			<input type="hidden" th:field="*{idtratamiento}" th:value="${idtratamiento}"/>
+		<p>
+			Nombre: <input type="text" th:field="*{nombre}" th:value="${nombre}"/>
+		<p>
+			Descripcion: <input type="text" th:field="*{descripcion}" th:value="${descripcion}"/>
+		<p>
+			Tipo: <select name="tipo">
+					<option th:each="tipo : ${T(com.dawes.enums.TipoTratamiento).values()}"
+					th:value="${tipo}" th:text="${tipo}"></option>
+					</select></p>
+		<p>
+			<input type="submit" value="editar"/>
+
+	</form>
+</body>
+</html>

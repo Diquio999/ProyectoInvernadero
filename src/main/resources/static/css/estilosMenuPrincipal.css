@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 1000px;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+ .tituloInv {
+      font-family: "Arial", sans-serif;
+      font-size: 48px;
+      color: #333;
+      text-align: center;
+      margin-top: 50px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 span {
+      display: inline-block;
+      background-color: rgb(12, 182, 0);
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 50px;
+}
+
+th {
+  text-align: center;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+th a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+
+th a:hover {
+  background-color: #0056b3;
+}
+
+.carousel {
+      position: relative;
+      height: 300px;
+      width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 300px;
+      width: 600px;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .carousel img.active {
+      opacity: 1;
+    }

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title tiles:fragment="title">Messages : Create</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      legend {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .alert-success {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+      }
+
+      .form-actions {
+        text-align: center;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div tiles:fragment="content">
+      <form name="f" th:action="@{/login}" method="post">
+        <fieldset>
+          <legend>Please Login</legend>
+          <div th:if="${param.error}" class="alert alert-error">
+            Invalid username and password.
+          </div>
+          <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out.
+          </div>
+          <label for="username">Usuario</label>
+          <input type="text" id="username" name="username" />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" />
+          <div class="form-actions">
+            <button type="submit" class="btn">Log in</button>
+            <button class="btn"><a th:href="@{/index}">Volver</a></button>
+          </div>
+        </fieldset>
+      </form>
+      
+    </div>
+  </body>
+</html>

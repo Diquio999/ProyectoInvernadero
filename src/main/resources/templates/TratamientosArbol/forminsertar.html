@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Aplica tratamiento</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/estilosForm.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+			<form th:action="@{/tratamientosarbol/insertar}" method="post" th:object="${tratamientosarbol}">
+		
+		<p>
+            Arbol: <select th:field="*{arbol}">
+                <option th:each="arbol: ${arbol}" th:value="${arbol.idarbol}" th:text="${arbol.idarbol}"></option>
+            </select>
+        </p>
+        <p>
+            Tratamiento: <select th:field="*{tratamiento}">
+                <option th:each="tratamiento: ${tratamiento}" th:value="${tratamiento.idtratamiento}" th:text="${tratamiento.nombre}"></option>
+            </select>
+        </p>
+        <p>Fecha Aplicacion: <input type="date" th:field="*{fechatratamiento}"/>
+     
+		
+		<p>
+			<input type="submit" value="insertar"/>
+		</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+	<h1>CRUD Tratamiento</h1>
+	<table>
+		<tr>
+			<th>Nombre</th>
+			<th>Descripcion</th>
+			<th>Tipo de Tratamiento</th>
+			<th>Accion</th>
+		</tr>
+		<tr th:each="tratamiento: ${tratamiento}">
+			<td th:text="${tratamiento.nombre}" />
+			<td th:text="${tratamiento.descripcion}" />
+			<td th:text="${tratamiento.tipo}" />
+			
+			<td><a th:href="@{/tratamiento/editar(idtratamiento=${tratamiento.idtratamiento})}" class="editar">Editar</a>
+			<a th:href="@{/tratamiento/eliminar(idtratamiento=${tratamiento.idtratamiento})}" class="eliminar">Eliminar</a></td>
+	</table>
+	<a th:href="@{/tratamiento/forminsertar}" class="insertar">Insertar nuevo Tratamiento</a>
+</body>
+</html>

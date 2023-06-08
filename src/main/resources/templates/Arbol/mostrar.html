@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CRUD Arboles</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header th:replace="~{layaout/fragments :: header}"></header>
+    <h1>CRUD Arbol</h1>
+    <table>
+            <tr>
+                <th>Id</th>
+                <th>Variedad</th>
+                <th>Fecha Plantacion</th>
+                <th>Estado</th>
+                <th>Finca</th>
+                <th>Fila</th>
+                <th>Columna</th>
+                <th>Acciones</th>
+
+            </tr>
+            <tr th:each="arbol : ${arbol}">
+                <td th:text="${arbol.idarbol}"></td>
+                <td th:text="${arbol.variedad.nombre}"></td>
+                <td th:text="${arbol.fechaplantacion}"></td>
+                <td th:text="${arbol.estado}"></td>
+                <td th:text="${arbol.finca.nombre}"></td>
+                <td th:text="${arbol.fila}"></td>
+                <td th:text="${arbol.columna}"></td>
+                
+                <td><a th:href="@{/arbol/editar(idarbol=${arbol.idarbol})}" class="editar">Editar</a>
+			<a th:href="@{/arbol/eliminar(idarbol=${arbol.idarbol})}" class="eliminar">Eliminar</a></td>
+	</table>
+	<a th:href="@{/arbol/forminsertar}" class="insertar">Insertar nuevo Arbol</a>
+	<a th:href="@{/tratamientosarbol/mostrar}" class="insertar">Aplicar tratamientos</a>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Confirmación de Logout</title>
+  <link th:href="@{/css/logout.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <form th:action="@{/logout}" method="post" onsubmit="return confirm('¿Estas seguro de que deseas cerrar sesion?')">
+    <h1>Confirmacion de Logout</h1>
+    <input type="submit" value="Logout">
+  </form>
+</body>
+</html>

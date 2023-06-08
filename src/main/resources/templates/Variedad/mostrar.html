@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Insert title here</title>
+  <link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+    <h1>CRUD Variedad</h1>
+    <div class="tabla">
+      <table>
+        <tr>
+          <th>Nombre</th>
+          <th>Accion</th>
+        </tr>
+        <tr th:each="variedad: ${variedad}">
+          <td th:text="${variedad.nombre}" />
+          <td>
+            <a th:href="@{/variedad/editar(idvariedad=${variedad.idvariedad})}" class="editar">Editar</a>
+              <a
+              th:href="@{/variedad/eliminar(idvariedad=${variedad.idvariedad})}" class="eliminar">Eliminar</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+	<a th:href="@{/variedad/forminsertar}" class="insertar">Insertar nueva Variedad</a>
+  </body>
+</html>

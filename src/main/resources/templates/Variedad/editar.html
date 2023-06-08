@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/estilosForm.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header th:replace="~{layaout/fragments :: header}"></header>
+	<form method="post" th:action="@{/variedad/save}" th:object="${variedad}">
+		<p>
+			<input type="hidden" th:field="*{idvariedad}" th:value="${idvariedad}"/>
+		<p>
+			Nombre: <input type="text" th:field="*{nombre}" th:value="${nombre}"/>
+		<p>
+			<input type="submit" value="editar"/>
+
+	</form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/estilos.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/Usuario.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header th:replace="~{layaout/fragments :: header}"></header>
+<div class="container">
+    <div class="header">
+        <h1>Bienvenido Usuario registrado</h1>
+    </div>
+    <div class="content">
+        <h2 class="title">¡Bienvenido al Invernadero!</h2>
+        <p>Como usuario normal, tienes acceso limitado a las funciones y configuraciones del invernadero.</p>
+        <a href="/index" class="link">Volver</a>
+    </div>
+</div>
+</body>
+</html>
