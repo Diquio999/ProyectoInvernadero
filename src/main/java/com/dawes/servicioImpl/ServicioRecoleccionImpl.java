@@ -45,7 +45,7 @@ public class ServicioRecoleccionImpl{
 
 
 	public void deleteById(Integer id) {
-		rr.deleteById(id);
+		repo.deleteById(id);
 	}
 
 	
