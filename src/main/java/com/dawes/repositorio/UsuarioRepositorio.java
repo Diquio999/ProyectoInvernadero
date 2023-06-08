@@ -1,13 +1,14 @@
 package com.dawes.repositorio;
+import java.util.Optional;
 
-import org.springframework.data.repository.CrudRepository;
-
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.dawes.modeloUsuarios.UsuarioVO;
+import com.tfg.kerzenstudio.model.Usuario;
 
 @Repository
-public interface UsuarioRepositorio extends CrudRepository<UsuarioVO, Integer> {
-	UserDetails findByUsername(String username);
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+	
+	Optional<Usuario> findByUser(String user);
+
 }
