@@ -33,10 +33,10 @@ public class MiSeguridad {
 	@Bean
 	public SecurityFilterChain filtrocompleto(HttpSecurity http) throws Exception {
 
-		http.authorizeHttpRequests().requestMatchers("/admin/**").hasRole("ADMIN").and().exceptionHandling()
+		http.authorizeHttpRequests().requestMatchers( new AntPathRequestMatcher("/admin/**")).hasRole("ADMIN").and().exceptionHandling()
 				.accessDeniedPage("/403");
 
-		http.authorizeHttpRequests().requestMatchers("/","/finca/homefincas","/variedad/homevariedades", "/tratamiento/hometratamientos", "/recoleccion/homerecolecciones", "/arbol/homearboles", "/finca/mapafinca/**", "/css/**").permitAll().anyRequest().authenticated();
+		http.authorizeHttpRequests().requestMatchers( new AntPathRequestMatcher("/")).permitAll().anyRequest().authenticated();
 
 		http.formLogin().loginPage("/login").permitAll();
 
