@@ -77,7 +77,7 @@ public class FincaController {
 					{ -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1 } };
 		FincaVO finca= fincaservice.findFinca(id);
 		List<ArbolVO> arboles = (List<ArbolVO>) sa.findAll();
-		String nombreFinca = finca.get().getNombre(); 
+		String nombreFinca = finca.getNombre(); 
 		for (ArbolVO arbolVO : arboles) {
 			if (arbolVO.getFinca().getIdfinca() == id)
 			matriz[arbolVO.getFila() - 1][arbolVO.getColumna() - 1] = arbolVO.getIdarbol();
