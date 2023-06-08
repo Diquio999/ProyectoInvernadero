@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dawes.modelo.TratamientoVO;
-import com.dawes.servicio.ServicioTratamiento;
+import com.dawes.servicioImpl.ServicioTratamientoImpl;
 
 @Controller
 @RequestMapping("/tratamiento")
 public class TratamientoController {
 	@Autowired
-	ServicioTratamiento st;
+	ServicioTratamientoImpl st;
 	
 	@RequestMapping("/mostrar")
 	public String mostrar(Model modelo) {
