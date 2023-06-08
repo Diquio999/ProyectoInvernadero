@@ -1,15 +1,16 @@
 package com.dawes.servicioImpl;
 
 import java.util.Optional;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 import com.dawes.modelo.TratamientoArbolVO;
 import com.dawes.repositorio.TratamientoArbolRepositorio;
-import com.dawes.servicio.ServicioTratamientoArbol;
+import com.dawes.modelo.ArbolVO;
 
 @Service
+@Transactional
 public class ServicioTratamientoArbolImpl implements ServicioTratamientoArbol{
 	@Autowired
 	private TratamientoArbolRepositorio repo;
