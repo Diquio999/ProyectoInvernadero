@@ -43,7 +43,7 @@ public List<TratamientoArbolVO> findAll() {
 
 	
 	public void deleteById(Integer id) {
-		tar.deleteById(id);
+		repo.deleteById(id);
 		
 	}
 
