@@ -75,10 +75,9 @@ public class FincaController {
 	public String Mapa(Model model, @PathVariable(name = "id") int id) {
 		int[][] matriz = { { -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1 },
 					{ -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1 } };
-		Optional<FincaVO> finca= sf.findById(id);
+		FincaVO finca= fincaservice.findFinca(id);
 		List<ArbolVO> arboles = (List<ArbolVO>) sa.findAll();
-		if(false) {
-			String nombreFinca = finca.get().getNombre(); 
+		String nombreFinca = finca.get().getNombre(); 
 		for (ArbolVO arbolVO : arboles) {
 			if (arbolVO.getFinca().getIdfinca() == id)
 			matriz[arbolVO.getFila() - 1][arbolVO.getColumna() - 1] = arbolVO.getIdarbol();
@@ -86,8 +85,5 @@ public class FincaController {
 		model.addAttribute("matriz", matriz);
 		model.addAttribute("nombreFinca", nombreFinca);
 		return "mapa";
-		}
-		
-		return "Finca/mostrar";
 	}
 }
