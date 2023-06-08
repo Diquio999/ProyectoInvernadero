@@ -36,7 +36,7 @@ public class ServicioFincaImpl{
 		return fincas;
 	}
 	public void deleteById(Integer id) {
-		fr.deleteById(id);
+		repo.deleteById(id);
 		
 	}
 
