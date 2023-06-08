@@ -18,9 +18,6 @@ public class ServicioUsuarioImpl implements UserDetailsService {
 		return ur.findByUsername(username);
 	}
 	public void save(UsuarioVO usuario) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		usuario.setPassword(encoder.encode(usuario.getPassword()));
-		usuario.setRol(RolVO.USER);
 		ur.save(usuario);
 	}
 
