@@ -39,7 +39,7 @@ public class MiSeguridad {
 		//autorizamos acceso a los recursos de user
 		http
 		.authorizeHttpRequests()
-		.requestMatchers("/user/**")
+		.requestMatchers(new AntPathRequestMatcher("/user/**"))
 		.hasAnyRole("ADMIN", "USER")
 		.and()
 		.exceptionHandling()
@@ -48,7 +48,7 @@ public class MiSeguridad {
 		//autorizamos acceso a los recursos de admin
 		http
 		.authorizeHttpRequests()
-		.requestMatchers("/admin/**")
+		.requestMatchers(new AntPathRequestMatcher("/admin/**"))
 		.hasRole("ADMIN")
 		.and()
 		.exceptionHandling()
@@ -57,7 +57,7 @@ public class MiSeguridad {
 		//acceso publico a los recursos en el raiz en el pincipal, login
 		http
 		.authorizeHttpRequests()
-		.requestMatchers("/", "/login", "/index")
+		.requestMatchers(new AntPathRequestMatcher("/"), new AntPathRequestMatcher("/login"), new AntPathRequestMatcher("/index"))
 		.permitAll()
 		.anyRequest()
 		.authenticated();
