@@ -17,8 +17,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "tratamientosarbol")
 public class TratamientoArbolVO {
 	@Id
@@ -32,4 +30,40 @@ public class TratamientoArbolVO {
 	@ManyToOne
 	@JoinColumn(name = "idtratamiento")
 	private TratamientoVO tratamiento;
+	public TratamientoArbolVO() {
+	}
+	public TratamientoArbolVO(int idtratamientoarbol, LocalDate fechatratamiento, ArbolVO arbol,
+			TratamientoVO tratamiento) {
+		super();
+		this.idtratamientoarbol = idtratamientoarbol;
+		this.fechatratamiento = fechatratamiento;
+		this.arbol = arbol;
+		this.tratamiento = tratamiento;
+	}
+	public int getIdtratamientoarbol() {
+		return idtratamientoarbol;
+	}
+	public void setIdtratamientoarbol(int idtratamientoarbol) {
+		this.idtratamientoarbol = idtratamientoarbol;
+	}
+	public LocalDate getFechatratamiento() {
+		return fechatratamiento;
+	}
+	public void setFechatratamiento(LocalDate fechatratamiento) {
+		this.fechatratamiento = fechatratamiento;
+	}
+	public ArbolVO getArbol() {
+		return arbol;
+	}
+	public void setArbol(ArbolVO arbol) {
+		this.arbol = arbol;
+	}
+	public TratamientoVO getTratamiento() {
+		return tratamiento;
+	}
+	public void setTratamiento(TratamientoVO tratamiento) {
+		this.tratamiento = tratamiento;
+	}
+	
+	
 }
