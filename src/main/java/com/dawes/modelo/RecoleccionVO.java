@@ -1,4 +1,4 @@
-package com.dawes.modelo;
+/*package com.dawes.modelo;
 
 import java.time.LocalDate;
 
@@ -41,4 +41,4 @@ public class RecoleccionVO {
 		this.finca=finca;
 		this.variedad=variedad;
 	}
-}
+}*/
