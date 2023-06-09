@@ -13,9 +13,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
+
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name="tratamiento",uniqueConstraints = @UniqueConstraint (columnNames = "nombre"))
 public class TratamientoVO {
@@ -26,10 +25,39 @@ public class TratamientoVO {
 	@Column (length = 40) 
 	private String descripcion;
 	private TipoTratamiento tipo;
-	
-	public TratamientoVO(String nombre, String descripcion, TipoTratamiento tipo) {
-		this.nombre=nombre;
-		this.descripcion=descripcion;
-		this.tipo=tipo;
+	public TratamientoVO(int idtratamiento, String nombre, String descripcion, TipoTratamiento tipo) {
+		super();
+		this.idtratamiento = idtratamiento;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.tipo = tipo;
 	}
+	public TratamientoVO() {
+	}
+	public int getIdtratamiento() {
+		return idtratamiento;
+	}
+	public void setIdtratamiento(int idtratamiento) {
+		this.idtratamiento = idtratamiento;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	public TipoTratamiento getTipo() {
+		return tipo;
+	}
+	public void setTipo(TipoTratamiento tipo) {
+		this.tipo = tipo;
+	}
+	
+
 }
