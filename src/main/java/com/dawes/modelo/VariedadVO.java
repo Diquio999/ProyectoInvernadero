@@ -9,9 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name="variedad",uniqueConstraints = @UniqueConstraint (columnNames = "nombre"))
 public class VariedadVO {
@@ -20,8 +19,25 @@ public class VariedadVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idvariedad;
 	private String nombre;
-
-	public VariedadVO(String nombre) {
-		this.nombre=nombre;
+	public VariedadVO() {
 	}
+	public VariedadVO(int idvariedad, String nombre) {
+		super();
+		this.idvariedad = idvariedad;
+		this.nombre = nombre;
+	}
+	public int getIdvariedad() {
+		return idvariedad;
+	}
+	public void setIdvariedad(int idvariedad) {
+		this.idvariedad = idvariedad;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	
 }
