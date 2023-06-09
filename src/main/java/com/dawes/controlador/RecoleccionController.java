@@ -1,4 +1,4 @@
-package com.dawes.controlador;
+/*package com.dawes.controlador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -67,4 +67,4 @@ public class RecoleccionController {
 		modelo.addAttribute("recoleccion", sr.findById(idrecoleccion));
 		return "Recoleccion/editar";
 	}
-}
+}*/
