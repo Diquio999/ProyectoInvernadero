@@ -1,4 +1,4 @@
-package com.dawes.repositorio;
+/*package com.dawes.repositorio;
 
 
 
@@ -11,3 +11,4 @@ import com.dawes.modelo.RecoleccionVO;
 public interface RecoleccionRepositorio extends JpaRepository<RecoleccionVO, Integer>{
 
 }
+*/
